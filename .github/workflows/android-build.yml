@@ -1,13 +1,17 @@
+
+
+
 name: Build Android APK
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-22.04
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -22,23 +26,18 @@ jobs:
         python -m pip install --upgrade pip
         pip install --upgrade buildozer==1.4.1 python-for-android==2024.1.21
 
-    - name: Cache .buildozer and pip
-      uses: actions/cache@v4
-      with:
-        path: |
-          ~/.buildozer
-          ~/.cache/pip
-        key: ${{ runner.os }}-buildozer-${{ hashFiles('**/buildozer.spec') }}
-
-    - name: Run buildozer android debug
+    - name: Install system dependencies
       run: |
-        buildozer -v android debug
-      timeout-minutes: 120
+        sudo apt update
+        sudo apt install -y libtool autoconf automake build-essential pkg-config zip unzip openjdk-17-jdk
 
-    - name: Upload APK artifact
-      uses: actions/upload-artifact@v4
+    - name: Build APK
+      run: |
+        buildozer android debug
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v3
       with:
-        name: myapp-apk
+        name: DataEncryptionMobile-APK
         path: bin/*.apk
-
 
