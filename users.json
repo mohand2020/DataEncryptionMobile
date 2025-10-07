@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "username": "user1@safe",
+      "password_hash": "fe6b8c6dc4602d8229a7b2b3f7c2f4da7ab9055e23b12ae00db0dd201351b6c2",
+      "encryption_key": "R0twoxtDQfkx5RW90aJXkqO2LHG5rglCMvdHHBWLTW0="
+    },
+    {
+      "username": "user2@secure",
+      "password_hash": "bcb427f7686538383c94d3a859cc64f0c4ea367d204a04083e4b2bde6cc2ec8c",
+      "encryption_key": "bIjaVJwTQw6g82_VlpIpxqSRZuOVFAtcq53k_MDr6Q8="
+    }
+  ]
+}
