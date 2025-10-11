@@ -14,6 +14,8 @@ source.dir = .
 
 # (str) Main .py file to use as the main entry point
 source.main = main.py
+android.sdk = 34
+android.build_tools_version = 34.0.0
 
 # (list) List of inclusions using pattern matching
 source.include_exts = py,png,jpg,kv,atlas
